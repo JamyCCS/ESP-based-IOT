@@ -2,6 +2,8 @@ ESP32 IoT Home Automation
 
 A comprehensive smart home automation system built with an ESP32 microcontroller. This project allows for the control of home appliances (lights and fans) both manually via traditional wall switches and remotely through the Arduino IoT Cloud dashboard and Google Assistant.
 
+
+
 Features
 
 Dual Control System: Control appliances manually using physical wall switches (works even offline) or remotely via Wi-Fi.
@@ -12,12 +14,25 @@ State Memory: Uses flash storage (Preferences.h) to remember relay states so the
 
 Hardware Requirements
 
-ESP32 Microcontroller: The brain of the project, featuring built-in Wi-Fi.
+ESP32 devkit v1 type c Microcontroller: The brain of the project, featuring built-in Wi-Fi.
+<img width="1000" height="1000" alt="image" src="https://github.com/user-attachments/assets/fb9b3930-8bb6-4885-b02d-a568b6cebdff" />
+
 4-Channel Relay Module (Active-LOW): Safely isolates and switches AC mains voltage. (Note: Only 2 channels are used for Light and Fan, allowing room for expansion).
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/a7bd2c23-a8e1-447d-b109-589d9d7672f2" />
+
 DHT11 Sensor: For reading room temperature and humidity.
+<img width="1500" height="1500" alt="image" src="https://github.com/user-attachments/assets/918a90ca-6d6c-405b-b963-c61db9bb2b7c" />
+
 HC-SR501 PIR Motion Sensor: For detecting human presence to trigger Eco Mode.
+<img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/96507fa4-3e29-4186-856f-2fc924e3862a" />
+
 Standard Wall Switches: Momentary switches wired to GND for manual overrides.
-5V USB Power Supply: Powers the ESP32, which in turn provides 5V to the relays and sensors.
+
+5V USB Power Supply: Powers the ESP32, which in turn provides 5V to the relays and sensors. A type C charger can be used.
+
+Wires: Jumper Wires for Logic Data transfer and AC wire for AC Power In and Out
+
+A AC plug. 
 
 Wiring & Pin Configuration:
 
