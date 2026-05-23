@@ -2,6 +2,13 @@ ESP32 IoT Home Automation
 
 A comprehensive smart home automation system built with an ESP32 microcontroller. This project allows for the control of home appliances (lights and fans) both manually via traditional wall switches and remotely through the Arduino IoT Cloud dashboard and Google Assistant.
 
+<img width="1600" height="1200" alt="image" src="https://github.com/user-attachments/assets/13e31db7-b45a-4306-b659-c176a1c7a328" />
+
+
+<img width="897" height="919" alt="image" src="https://github.com/user-attachments/assets/0a6e97c6-c8ca-40bf-ba09-964fc2dcd52a" />
+
+<img width="994" height="735" alt="image" src="https://github.com/user-attachments/assets/090ee344-9650-4890-a31c-234e33f01760" />
+
 
 
 Features
@@ -33,6 +40,8 @@ Standard Wall Switches: Momentary switches wired to GND for manual overrides.
 Wires: Jumper Wires for Logic Data transfer and AC wire for AC Power In and Out
 
 A AC plug. 
+
+A 3D shell
 
 Wiring & Pin Configuration:
 
