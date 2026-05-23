@@ -1,2 +1,68 @@
-# ESP-based-IOT
-A basic IOT project made with ESP32 Devkit v1 type c . 
+ESP32 IoT Home Automation
+
+A comprehensive smart home automation system built with an ESP32 microcontroller. This project allows for the control of home appliances (lights and fans) both manually via traditional wall switches and remotely through the Arduino IoT Cloud dashboard and Google Assistant.
+
+Features
+
+Dual Control System: Control appliances manually using physical wall switches (works even offline) or remotely via Wi-Fi.
+Voice Control: Fully integrated with Google Home / Google Assistant for voice-activated switching.
+Eco Mode (Auto-Off): Utilizes a PIR motion sensor to automatically turn off relays if no human motion is detected for 5 minutes, saving energy.
+Environmental Monitoring: Real-time temperature and humidity tracking displayed on the cloud dashboard.
+State Memory: Uses flash storage (Preferences.h) to remember relay states so the system recovers properly after a power loss.
+
+Hardware Requirements
+
+ESP32 Microcontroller: The brain of the project, featuring built-in Wi-Fi.
+4-Channel Relay Module (Active-LOW): Safely isolates and switches AC mains voltage. (Note: Only 2 channels are used for Light and Fan, allowing room for expansion).
+DHT11 Sensor: For reading room temperature and humidity.
+HC-SR501 PIR Motion Sensor: For detecting human presence to trigger Eco Mode.
+Standard Wall Switches: Momentary switches wired to GND for manual overrides.
+5V USB Power Supply: Powers the ESP32, which in turn provides 5V to the relays and sensors.
+
+Wiring & Pin Configuration:
+
+All ground pins are connected together. The primary GPIO connections are:
+
+Relay Light (IN): GPIO26 - Controls Light relay (active-LOW)
+Relay Fan (IN): GPIO27 - Controls Fan relay (active-LOW)
+Light Switch: GPIO33 - Wall switch input (pressed = GND)
+Fan Switch: GPIO32 - Wall switch input (pressed = GND)
+PIR Motion Sensor: GPIO34 - Motion detection (HIGH = motion)
+DHT11 Data: GPIO4 - Temp/Humidity data
+
+(A complete schematic and flowchart can be found in the /images folder of this repository).
+
+Software Setup & Installation
+
+Arduino IoT Cloud Configuration
+Navigate to the Arduino IoT Cloud Dashboard (create.arduino.cc/iot/things).
+Create an ESP32 Device and save the DEVICE_ID and DEVICE_KEY.
+Create a Thing, link your device, and add the following variables exactly as named:
+light (Boolean, Read/Write)
+fan (Boolean, Read/Write)
+eco (Boolean, Read/Write)
+temperature (Float, Read Only)
+humidity (Float, Read Only)
+Set up your dashboard with 3 toggle switches (light, fan, eco) and 2 value widgets (temperature, humidity).
+
+Arduino IDE Setup
+Ensure you have the ESP32 board manager installed. Then, install the following libraries via the Library Manager:
+ArduinoIoTCloud
+Arduino_ConnectionHandler
+DHTesp (by beegee-tokyo)
+
+Flash the Firmware
+Open the .ino file in the Arduino IDE.
+Update the credentials block with your specific details:
+const char DEVICE_ID[] = "YOUR_DEVICE_ID";
+const char DEVICE_KEY[] = "YOUR_DEVICE_KEY";
+const char WIFI_SSID[] = "YOUR_WIFI_SSID";
+const char WIFI_PASS[] = "YOUR_WIFI_PASSWORD";
+Select your ESP32 board and COM port, then upload the code.
+
+Google Assistant Integration
+To control the system via voice:
+
+In the Arduino IoT Cloud, enable "Google Assistant Integration".
+Open the Google Home App on your phone and link your Arduino account.
+You can now use commands like "Turn on the fan" or "What is the temperature?".
